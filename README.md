@@ -1,6 +1,7 @@
 # EmployeeRegister
 ### Projeto de aprendizado
 Este projeto consiste em um programa que registra funcionários.
+
 Tais funcionários devem conter **ID**, **nome** e **salário**.
 
 As funcções do programa são:
@@ -11,4 +12,5 @@ As funcções do programa são:
 - Deletar funcionário
 
 > Curso de Orientação a Objeto com Java
+> 
 > de Nélio Alves
