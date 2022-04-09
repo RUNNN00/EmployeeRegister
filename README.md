@@ -3,7 +3,7 @@
 Este projeto consiste em um programa que registra funcionários.
 Tais funcionários devem conter **ID**, **nome** e **salário**.
 
-As funcções do programa são:
+As funções do programa são:
 - Mostrar funcionários
 - Mostrar funcionários de forma descritiva
 - Registrar um novo funcionário
