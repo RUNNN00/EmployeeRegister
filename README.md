@@ -11,8 +11,6 @@ As funções do programa são:
 - Deletar funcionário
 
 > Curso de Orientação a Objeto com Java
-> de Nélio Alves
-
-# Heading
+> de Nélio Alves.
 
 Obs: ignorem os erros de inglês rs.
