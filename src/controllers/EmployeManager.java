@@ -1,9 +1,10 @@
-package application;
+package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import entities.Department;
 import entities.Employe;
+import entities.enums.WorkerLevel;
 
 public class EmployeManager
 {
@@ -11,18 +12,18 @@ public class EmployeManager
 	private int codeIDs = 0;
 
 	
-	public void registerNewEmploye(String name, double baseSalary)
-	{		
+	public void registerNewEmploye(String name, Department dep, WorkerLevel lvl, double bSalary)
+	{
 		codeIDs++;
-		Employe e = new Employe(codeIDs, name, baseSalary);
-		
+		Employe e = new Employe(codeIDs, name, dep, lvl, bSalary);
+
 		if (employes.add(e))
 			System.out.println("\nEmploye registered with SUCESSFULL\n");
 		else
 			System.out.println("\nRegister employe FAILED\n");
 	}
-	
 
+	
 	public void showEmployes(boolean descr)
 	{
 		if (employes.size() <= 0)

@@ -2,6 +2,9 @@ package application;
 
 import java.util.Locale;
 import java.util.Scanner;
+import controllers.EmployeManager;
+import entities.Department;
+import entities.enums.WorkerLevel;
 
 public class Main
 {
@@ -30,25 +33,49 @@ public class Main
 			switch (option)
 				{
 				case 1:
-					System.out.printf("\nEMPLOYES REGISTEREDS\n");
+					System.out.printf("\nEMPLOYES REGISTERED\n");
 					System.out.printf("======================================\n");
 					employeeManager.showEmployes(false);
 					System.out.printf("======================================\n");
 					break;
 				case 2:
-					System.out.printf("\nEMPLOYES REGISTEREDS\n");
+					System.out.printf("\nEMPLOYES REGISTERED\n");
 					System.out.printf("======================================\n");
 					employeeManager.showEmployes(true);
 					System.out.printf("======================================\n");
 					break;
 				case 3:
 					System.out.println("\nREGISTERING NEW EMPLOYE");
-					System.out.printf("Name: ");
+					System.out.printf("Enter name department: ");
 					scanner.nextLine();
+					String department = scanner.nextLine();
+					System.out.printf("Name: ");
 					String name = scanner.nextLine();
-					System.out.printf("Salary: ");
+					System.out.printf("Level:\n");
+					System.out.println("3 > SENIOR");
+					System.out.println("2 > MID_LEVEL");
+					System.out.println("1 > JUNIOR");
+					int lvl = scanner.nextInt();
+					String level = "";
+					switch (lvl)
+						{
+						case 1:
+							level = "JUNIOR";
+							break;
+						case 2:
+							level = "MID_LEVEL";
+							break;
+						case 3:
+							level = "SENIOR";
+							break;
+						default:
+							level = "JUNIOR";
+							break;
+						}
+					System.out.printf("Base Salary: ");
 					double baseSal = scanner.nextDouble();
-					employeeManager.registerNewEmploye(name, baseSal);
+					employeeManager.registerNewEmploye(name, new Department(department), WorkerLevel.valueOf(level),
+							baseSal);
 					break;
 				case 4:
 					// TODO incrementar salário
