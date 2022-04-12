@@ -3,7 +3,7 @@
 Este projeto consiste em um programa que registra funcionários.
 Tais funcionários devem conter **ID**, **nome** e **salário**.
 
-As funcções do programa são:
+As funções do programa são:
 - Mostrar funcionários
 - Mostrar funcionários de forma descritiva
 - Registrar um novo funcionário
@@ -11,4 +11,8 @@ As funcções do programa são:
 - Deletar funcionário
 
 > Curso de Orientação a Objeto com Java
-> de Nélio Alves
+> de Nélio Alves.
+ 
+--------------------------------
+ 
+Obs: ignorem os erros de inglês rs.
