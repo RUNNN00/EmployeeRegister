@@ -9,7 +9,7 @@ public class Main
 	{
 		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
-		EmployeManager employeManager = new EmployeManager();
+		EmployeManager employeeManager = new EmployeManager();
 		int option = 10;
 
 		System.out.printf("======================================\n");
@@ -30,23 +30,40 @@ public class Main
 			switch (option)
 				{
 				case 1:
-					employeManager.showEmployes(false);
+					System.out.printf("\nEMPLOYES REGISTEREDS\n");
+					System.out.printf("======================================\n");
+					employeeManager.showEmployes(false);
+					System.out.printf("======================================\n");
 					break;
 				case 2:
-					employeManager.showEmployes(true);
+					System.out.printf("\nEMPLOYES REGISTEREDS\n");
+					System.out.printf("======================================\n");
+					employeeManager.showEmployes(true);
+					System.out.printf("======================================\n");
 					break;
 				case 3:
-					employeManager.registerNewEmploye(scanner);
+					System.out.println("\nREGISTERING NEW EMPLOYE");
+					System.out.printf("Name: ");
+					scanner.nextLine();
+					String name = scanner.nextLine();
+					System.out.printf("Salary: ");
+					double baseSal = scanner.nextDouble();
+					employeeManager.registerNewEmploye(name, baseSal);
 					break;
 				case 4:
+					// TODO incrementar salário
 					break;
 				case 5:
+					// TODO Deletar um employee
+					break;
+				case 0:
+					System.out.println("Good bye!");
 					break;
 				default:
+					System.out.println("\nDigite uma opção válida!\n");
 					break;
 				}
 		}
-		
 		scanner.close();
 	}
 }
