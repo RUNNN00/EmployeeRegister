@@ -1,14 +1,30 @@
 package application;
 
+/*
+ * IMPLEMENTAÇÕES
+ * 	- Mostrar funcionarios
+ *  - Mostrar funcionarios descrição
+ *  	- Mostrar contratos de um funcionario
+ *  	- Mostrar o income de um contrato de funcionario de um determinado mes
+ *  - REgistrar funcionario
+ *  - Incrementar aumento de salario
+ *  - Adicionar contrato
+ *  - Deletar funcionario
+ * */
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 import controllers.EmployeManager;
 import entities.Department;
+import entities.Employe;
 import entities.enums.WorkerLevel;
 
 public class Main
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws ParseException
 	{
 		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
@@ -26,7 +42,8 @@ public class Main
 			System.out.println("> 2 -> Show employes description");
 			System.out.println("> 3 -> Register new employe");
 			System.out.println("> 4 -> Increasy salary");
-			System.out.println("> 5 -> Delete employe");
+			System.out.println("> 5 -> Adicionar contratos");
+			System.out.println("> 6 -> Delete employe");
 			System.out.println("> 0 -> Exit");
 			option = scanner.nextInt();
 
@@ -43,6 +60,26 @@ public class Main
 					System.out.printf("======================================\n");
 					employeeManager.showEmployes(true);
 					System.out.printf("======================================\n");
+					System.out.println("Informe o ID do funcionario para o income");
+					System.out.println("Informe 0 para sair");
+					System.out.printf("> ");
+					option = scanner.nextInt();
+					if (option != 0)
+					{
+						Employe e = employeeManager.getEmployee(option);
+						if (e != null)
+						{
+							System.out.printf("\nInforme o ano: ");
+							int year = scanner.nextInt();
+							System.out.printf("informe o mes: ");
+							int month = scanner.nextInt();
+							System.out.printf("\n%s\n", e.getName().toUpperCase());
+							System.out.println("Inocome for " + String.format("%02d", month) + "/" + year + ": "
+									+ e.income(year, month) + "\n");
+						} else
+							System.out.println("\nInforme um ID válido!\n");
+					}
+					option = 10;
 					break;
 				case 3:
 					System.out.println("\nREGISTERING NEW EMPLOYE");
@@ -81,6 +118,28 @@ public class Main
 					// TODO incrementar salário
 					break;
 				case 5:
+					SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+					if (employeeManager.getQuantityEmployees() <= 0)
+					{
+						System.out.println("\nNão há nenhum funcionário para adicionar um contrato no momento\n");
+						break;
+					}
+
+					System.out.println("\nADICIONANDO CONTRATO\n");
+					System.out.printf("Informe o ID do funcionario: ");
+					int id = scanner.nextInt();
+					System.out.printf("Data (dd/MM/yyyy): ");
+					Date date = sdf.parse(scanner.next());
+					System.out.printf("Valor por hora: ");
+					double valuePerHour = scanner.nextDouble();
+					System.out.printf("Duração: ");
+					int duration = scanner.nextInt();
+					if (!employeeManager.addContract(id, date, valuePerHour, duration))
+						System.out.println("\nERROR: o contrato nao foi adicionado com sucesso!\n");
+					else
+						System.out.println("\nContrato adicionado com sucesso\n");
+					break;
+				case 6:
 					// TODO Deletar um employee
 					break;
 				case 0:
