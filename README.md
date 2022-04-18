@@ -8,5 +8,5 @@ Este projeto consiste em um programa de gerenciamento de funcionários.
 ##
 
 <h4 align="center">
- :construction Projeto README em construção... :construction
+ :construction: Projeto README em construção... :construction:
  </h4>
